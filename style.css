@@ -1,0 +1,94 @@
+/* --- CSS (Tema Teknologi & Pendidikan) --- */
+:root {
+    --primary: #5352ed; /* Biru Elektrik */
+    --secondary: #2f3542; /* Gelap */
+    --accent: #ff6b81; /* Merah Jambu */
+    --success: #2ed573; /* Hijau Neon */
+    --bg: #f1f2f6;
+    --code-bg: #2d3436;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; background-color: var(--bg); color: #2f3542; }
+
+/* Utiliti */
+.hidden { display: none !important; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.btn {
+    background: var(--primary); color: white; padding: 12px 25px;
+    border: none; border-radius: 50px; cursor: pointer; text-decoration: none;
+    display: inline-block; transition: 0.3s; font-weight: bold; box-shadow: 0 4px 10px rgba(83, 82, 237, 0.3);
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(83, 82, 237, 0.4); }
+.btn-back { background: var(--secondary); margin-bottom: 20px; box-shadow: none; }
+.badge { background: var(--accent); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; vertical-align: middle; margin-left: 5px;}
+
+/* Gaya Khas Kod (Untuk ASK) */
+.code-block {
+    background: var(--code-bg); color: #dfe6e9; padding: 15px;
+    border-radius: 8px; font-family: 'Courier New', monospace; margin: 15px 0;
+    border-left: 5px solid var(--success); overflow-x: auto;
+}
+.highlight { color: var(--accent); font-weight: bold; }
+
+/* Navigasi */
+nav {
+    background: white; padding: 1rem; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+nav .nav-content {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1000px; margin: 0 auto;
+}
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+/* --- HALAMAN UTAMA --- */
+.hero {
+    background: linear-gradient(135deg, #70a1ff 0%, #5352ed 100%);
+    color: white; text-align: center; padding: 80px 20px; border-radius: 0 0 40px 40px; margin-bottom: 40px;
+}
+.hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; opacity: 0.9; }
+
+.menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px; padding-bottom: 50px;
+}
+.menu-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid white;
+    text-align: center; padding: 30px 20px; cursor: pointer;
+}
+.menu-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+.icon-box { font-size: 3rem; margin-bottom: 15px; }
+
+/* --- BAHAGIAN PEMBELAJARAN --- */
+.topic-card {
+    background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.topic-card h2 { color: var(--primary); margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+.topic-card h3 { margin-top: 20px; margin-bottom: 10px; color: var(--secondary); }
+.topic-card p, .topic-card ul { line-height: 1.7; color: #555; margin-bottom: 10px; }
+.topic-card ul { padding-left: 20px; }
+
+/* --- BAHAGIAN NOTA SENDIRI (Sambungan yang terputus) --- */
+.note-wrapper { 
+    background: #fff; padding: 30px; border-radius: 20px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+.note-input { 
+    width: 100%; 
+    padding: 15px;
+    border: 2px solid #dfe6e9;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    outline: none;
+    transition: 0.3s;
+}
+.note-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(83, 82, 237, 0.1);
+}
