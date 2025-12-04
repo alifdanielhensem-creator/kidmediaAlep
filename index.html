@@ -3,101 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduKit: ASK Tingkatan 3</title>
-    
+    <title>ASK TINGKATAN 3 - Laman Web Pembelajaran Interaktif</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <header class="main-header">
+        <div class="animation-area">
+            <h1>ASAS SAINS KOMPUTER TINGKATAN 3</h1>
+            <p>Jom Belajar dengan Gembira! 🚀</p>
+            </div>
+    </header>
+
     <nav>
-        <div class="nav-content">
-            <div class="logo">EduKit <span class="badge">ASK T3</span></div>
-            <button onclick="goHome()" class="btn btn-back" style="margin:0; padding: 8px 15px;">Menu Utama</button>
-        </div>
+        <a href="#nota">Nota Padat</a>
+        <a href="#video">Video Pembelajaran</a>
+        <a href="#kuiz">Ujian Minda</a>
+        <a href="#game">Permainan Interaktif</a>
     </nav>
 
-    <div class="container">
+    <main class="container">
         
-        <section id="main-menu">
-            <div class="hero">
-                <h1>Selamat Datang ke EduKit</h1>
-                <p>Modul Pembelajaran Asas Sains Komputer (Kod Arahan)</p>
+        <section id="nota" class="content-box">
+            <h2>📚 Bab 1: Pembangunan Atur Cara</h2>
+            <p>**Nota Ringkas:** Konsep Asas Pemikiran Komputasional (Leraian, Pengecaman Corak, Peniskalaan, Pengitlakan). Fasa Pembangunan Atur Cara (Analisis, Reka Bentuk, Pengekodan, Pengujian, Dokumentasi). [attachment_0](attachment)</p>
+            </section>
+
+        <section id="video" class="content-box">
+            <h2>▶️ Video Pembelajaran</h2>
+            <p>Tonton dan fahami konsep dengan lebih mendalam.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FK1tZPC02SE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-
-            <div class="menu-grid">
-                <div class="menu-card" onclick="openSection('section-nota')">
-                    <div class="icon-box">📚</div>
-                    <h3>Nota Pembelajaran</h3>
-                    <p>Fahami konsep Pemboleh Ubah, Operator & Struktur Kawalan.</p>
-                </div>
-
-                <div class="menu-card" onclick="openSection('section-latihan')">
-                    <div class="icon-box">💻</div>
-                    <h3>Contoh Kod</h3>
-                    <p>Lihat contoh kod Python yang sebenar.</p>
-                </div>
-
-                <div class="menu-card" onclick="openSection('section-tools')">
-                    <div class="icon-box">📝</div>
-                    <h3>Nota Sendiri</h3>
-                    <p>Catat nota penting anda di sini.</p>
-                </div>
-            </div>
+            <p class="video-caption">Video dari sumber rujukan luar (YouTube).</p>
         </section>
 
-        <section id="section-nota" class="hidden">
-            <button onclick="goHome()" class="btn btn-back">⬅ Kembali</button>
-            
-            <div class="topic-card">
-                <h2>1.0 Konsep Asas Kod Arahan</h2>
-                <h3>Apa itu Pemboleh Ubah?</h3>
-                <p>Pemboleh ubah (Variable) adalah tempat untuk menyimpan data dalam memori komputer. Contohnya, menyimpan markah murid.</p>
-                
-                <h3>Jenis Data Utama:</h3>
-                <ul>
-                    <li><strong>Integer:</strong> Nombor bulat (Contoh: 10, 500)</li>
-                    <li><strong>Float:</strong> Nombor perpuluhan (Contoh: 3.14, 5.5)</li>
-                    <li><strong>String:</strong> Teks (Contoh: "Hello Dunia")</li>
-                </ul>
+        <section id="kuiz" class="content-box">
+            <h2>🧠 Ujian Minda ASK</h2>
+            <p>Uji kefahaman anda tentang Bab Kriptografi!</p>
+            <div id="quiz-area">
+                <p>Kuiz akan dimuatkan menggunakan JavaScript.</p>
+                <button onclick="startQuiz()">Mula Kuiz</button>
+                <div id="result"></div>
             </div>
         </section>
-
-        <section id="section-latihan" class="hidden">
-            <button onclick="goHome()" class="btn btn-back">⬅ Kembali</button>
-
-            <div class="topic-card">
-                <h2>Contoh Kod Python</h2>
-                <p>Berikut adalah contoh penggunaan syarat <code>if-else</code>:</p>
-
-                <div class="code-block">
-markah = 75
-
-if markah >= 40:
-    print("<span class="highlight">Lulus</span>")
-else:
-    print("<span class="highlight">Gagal</span>")
-                </div>
-                <p>Output bagi kod di atas ialah: <strong>Lulus</strong></p>
-            </div>
+        
+        <section id="game" class="content-box">
+            <h2>🕹️ Permainan Interaktif (Belajar sambil Bermain)</h2>
+            <p>Contoh: Permainan padanan istilah Kriptografi dan maksudnya (memerlukan JavaScript lanjutan).</p>
+            <p>**Cadangan:** Anda boleh mengintegrasikan permainan dari platform seperti Wordwall atau Educaplay yang berkaitan dengan ASK Tingkatan 3.</p>
         </section>
 
-        <section id="section-tools" class="hidden">
-            <button onclick="goHome()" class="btn btn-back">⬅ Kembali</button>
+    </main>
 
-            <div class="note-wrapper">
-                <h2>📝 Nota Pantas Saya</h2>
-                <p>Tulis nota ringkas anda di sini (Tidak akan hilang jika refresh browser).</p>
-                <br>
-                <textarea id="myNoteInput" class="note-input" rows="5" placeholder="Tulis sesuatu di sini..."></textarea>
-                <br><br>
-                <button onclick="simpanNota()" class="btn">Simpan Nota</button>
-            </div>
-        </section>
-
-    </div>
+    <footer>
+        <p>&copy; 2025 ASK T3 EduWeb. Semua Hak Cipta Terpelihara.</p>
+    </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
