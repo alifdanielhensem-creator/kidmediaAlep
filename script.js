@@ -1,46 +1,69 @@
-// Fungsi untuk membuka bahagian tertentu
-function openSection(sectionId) {
-    // 1. Sembunyikan menu utama
-    document.getElementById('main-menu').classList.add('hidden');
-    
-    // 2. Tunjukkan bahagian yang dipilih
-    document.getElementById(sectionId).classList.remove('hidden');
-    
-    // Scroll ke atas
-    window.scrollTo(0, 0);
-}
+// Data Kuiz ASK Tingkatan 3
+const quizData = [
+    {
+        question: "Apakah kaedah sifer yang menggantikan setiap huruf dengan huruf lain pada jarak tetap?",
+        options: ["Reverse Cipher", "Transposition Cipher", "Caesar Cipher", "Pigpen Cipher"],
+        answer: "Caesar Cipher"
+    },
+    {
+        question: "Apakah fasa pertama dalam Pembangunan Atur Cara?",
+        options: ["Pengekodan", "Analisis Masalah", "Pengujian", "Dokumentasi"],
+        answer: "Analisis Masalah"
+    }
+    // Tambah lebih banyak soalan di sini...
+];
 
-// Fungsi untuk kembali ke menu utama
-function goHome() {
-    // 1. Sembunyikan semua section lain
-    const sections = ['section-nota', 'section-latihan', 'section-tools'];
-    
-    sections.forEach(id => {
-        document.getElementById(id).classList.add('hidden');
+const quizArea = document.getElementById('quiz-area');
+const resultDiv = document.getElementById('result');
+
+function startQuiz() {
+    quizArea.innerHTML = ''; // Kosongkan butang "Mula Kuiz"
+    let output = '';
+
+    quizData.forEach((item, index) => {
+        output += `<div class="question-container">
+            <h3>Soalan ${index + 1}: ${item.question}</h3>
+            <ul class="options-list">`;
+        
+        item.options.forEach(option => {
+            output += `<li>
+                <input type="radio" id="q${index}o${option}" name="question${index}" value="${option}">
+                <label for="q${index}o${option}">${option}</label>
+            </li>`;
+        });
+        
+        output += </ul></div>;
     });
 
-    // 2. Tunjukkan menu utama semula
-    document.getElementById('main-menu').classList.remove('hidden');
+    output += <button onclick="submitQuiz()" class="submit-btn">Semak Jawapan</button>;
+    quizArea.innerHTML = output;
 }
 
-// Fungsi Simpan Nota (Bonus: Guna LocalStorage supaya tak hilang bila refresh)
-function simpanNota() {
-    const teksNota = document.getElementById('myNoteInput').value;
+function submitQuiz() {
+    let score = 0;
     
-    if(teksNota.trim() === "") {
-        alert("Sila tulis sesuatu dahulu!");
-        return;
-    }
+    quizData.forEach((item, index) => {
+        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+        
+        if (selectedOption) {
+            if (selectedOption.value === item.answer) {
+                score++;
+                // Beri maklum balas visual (ini memerlukan penambahan gaya CSS)
+                selectedOption.parentElement.style.backgroundColor = 'lightgreen';
+            } else {
+                // Beri maklum balas visual
+                selectedOption.parentElement.style.backgroundColor = 'lightcoral';
+                // Highlight jawapan yang betul
+                const correctAnswerLabel = document.querySelector(`input[value="${item.answer}"][name="question${index}"]`).parentElement;
+                correctAnswerLabel.style.backgroundColor = 'yellow';
+            }
+        }
+    });
 
-    // Simpan dalam browser
-    localStorage.setItem('notaPelajar', teksNota);
-    alert("Nota berjaya disimpan!");
+    resultDiv.innerHTML = <h2>Keputusan Anda: ${score} daripada ${quizData.length}</h2>;
+    // Tambah butang untuk cuba lagi
+    resultDiv.innerHTML += <button onclick="startQuiz()">Cuba Lagi</button>;
 }
 
-// Apabila website dibuka, check jika ada nota lama
-window.onload = function() {
-    const notaLama = localStorage.getItem('notaPelajar');
-    if(notaLama) {
-        document.getElementById('myNoteInput').value = notaLama;
-    }
-}
+// Untuk memastikan kuiz tidak bermula secara automatik, 
+// fungsi 'startQuiz()' akan dipanggil melalui butang dalam index.html
